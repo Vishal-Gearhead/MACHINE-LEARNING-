@@ -1,1 +1,64 @@
 
+
+Table of Contents
+
+          Overview
+          Dataset
+          Project Pipeline
+          Data Cleaning
+          Exploratory Data Analysis
+          Text Preprocessing
+          Model Building
+          Results & Evaluation
+          Model Comparison
+          Installation
+          Project Structure
+          Technologies Used
+
+OVERVIES
+
+This project builds a complete machine learning pipeline to automatically detect spam SMS messages. Starting from raw text data, it performs data cleaning, exploratory analysis, NLP preprocessing, and trains multiple classifiers — ultimately selecting Multinomial Naive Bayes with TF-IDF features as the best model.
+Metric                 Value
+Dataset Size             5,572 messages
+After Cleaning           5,169 messages
+Training Set             4,135 (80%)
+Test Set                 1,034 (20%)
+Best Model               MultinomialNBBest
+Accuracy                 96.9%
+Precision (Spam)          98.2%
+
+DATASET
+File: spam_sms.csv
+Source: UCI SMS Spam Collection Dataset
+Columns:
+
+# IN STARTING SO YOU HAVE TO CHANGE
+v1 → Label (ham or spam) — renamed to Target
+v2 → Raw SMS text — renamed to Text
+
+
+
+Raw CSV Data
+     │
+     ▼
+1. Data Cleaning        → Rename columns, encode labels, remove duplicates
+     │
+     ▼
+2. EDA                  → Class distribution, character/word/sentence analysis
+     │
+     ▼
+3. Text Preprocessing   → Lowercase → Tokenize → Remove noise → Remove stopwords → Stem
+     │
+     ▼
+4. Feature Extraction   → TF-IDF Vectorizer (max_features=3000)
+     │
+     ▼
+5. Model Training       → GaussianNB, MultinomialNB, BernoulliNB, Logistic Regression, Decision Tree
+     │
+     ▼
+6. Evaluation           → Accuracy, Precision, Confusion Matrix
+     │
+     ▼
+7. Save Model           → vectorizer.pkl + model.pkl
+
+
